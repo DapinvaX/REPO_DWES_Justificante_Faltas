@@ -59,7 +59,7 @@
             Codigo de estilo para el formulario
             style="margin-left: 600px; text-align: center; border-style:solid; border-width: 1px;  width: 600px; height: 800px;"
         -->
-      <div class="container" style="text-align: left; width: 600px; height: 800px; border-style:solid; border-width: 1px; margin-top: 20px">
+      <div class="container" style="text-align: left; width: 600px; height: 800px; border-style:solid; border-width: 1px; margin-top: 20px  "> <!--border-style:solid; border-width: 1px; margin-top: 20px -->
           
           <div class="row">
           	<div class="col-md-12" style="margin-bottom: 25px; text-align: center">
@@ -69,7 +69,7 @@
           
           <div class="row">
               
-            <div class="col-md-12" style="text-align: justify-content: ;" >
+            <div class="col-md-12" style="text-align: justify-content;" id="divPrincipal" >
                <!--  <h4>Formulario de falta de asistencia.</h4>  -->
 
                 <b>D./Dña. :</b> <label id="nombre"><%=nombre%></label><br>
@@ -80,7 +80,7 @@
                 
                 
                 <h4><b><sub>DECLARA QUE:</sub></h4></b></br></br>
-                Faltó a clase en la/s fecha/s <label id="idFecha"><%=fAusencia%></label><br>
+                Faltó a clase en la/s fecha/s: <label id="idFecha"><%=fAusencia%></label><br>
                 Horas lectivas: <label id="hLectivas"><%=hLectivas%></label><br>
                 Horas complementarias: <label id="hComplementarias"><%=hComplementarias%></label><br><br>
                 
@@ -126,9 +126,11 @@
 
       </div> 
        <div style="margin-top: 30px;margin-left: 835px">
-
+       
+       		
                 <!-- <button type="button" class="btn btn-primary" >Imprimir</button> -->
               	<input type="button" class="btn btn-primary" value="Imprimir" onclick="javascript:window.print()" />
+              	
               
               </div>
 	

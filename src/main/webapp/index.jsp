@@ -121,7 +121,7 @@
 					<!--  	
 					<input type="text" class="form-control" name="asignatura" id="inpAsignatura" style="width: 400px; text-align: center;" placeholder="Introduzca la asignatura"> 
 					-->
-						<select name="asignatura" id="inpAsignatura">
+						<select name="asignatura" id="inpAsignatura" style="height:30px;">
 							<option value="Ciencias de la Computación" >Ciencias de la Computación</option>
 							<option value="Ciencias" selected>Ciencias</option>
 							<option value="Ciencias de la lengua e historia">Ciencias de la lengua e historia</option>
@@ -132,7 +132,7 @@
 					</div>
 					<div class="col-md-6" style="text-align: left;">
 						<label for=""><b>Motivo:</b> </label>
-						<textarea class="form-control" name="TAMotivo" id="TAMotivo" rows="10" cols="50"></textarea>
+						<textarea class="form-control" name="TAMotivo" id="TAMotivo" rows="10" cols="50" placeholder="Escriba una breve descripción sobre los motivos de su ausencia."></textarea>
 					
 					</div>
 				
