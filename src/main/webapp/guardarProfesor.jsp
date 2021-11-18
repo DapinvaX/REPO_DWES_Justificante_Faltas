@@ -8,6 +8,9 @@
 		
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+	
 
 	<!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -59,7 +62,7 @@
             Codigo de estilo para el formulario
             style="margin-left: 600px; text-align: center; border-style:solid; border-width: 1px;  width: 600px; height: 800px;"
         -->
-      <div class="container" style="text-align: left; width: 600px; height: 800px; border-style:solid; border-width: 1px; margin-top: 20px  "> <!--border-style:solid; border-width: 1px; margin-top: 20px -->
+      <div class="container" id="divPrincipal" style="text-align: left; width: 600px; height: 800px; border-style:solid; border-width: 1px; margin-top: 20px  "> <!--border-style:solid; border-width: 1px; margin-top: 20px -->
           
           <div class="row">
           	<div class="col-md-12" style="margin-bottom: 25px; text-align: center">
@@ -69,7 +72,7 @@
           
           <div class="row">
               
-            <div class="col-md-12" style="text-align: justify-content;" id="divPrincipal" >
+            <div class="col-md-12" style="text-align: justify-content;" >
                <!--  <h4>Formulario de falta de asistencia.</h4>  -->
 
                 <b>D./Dña. :</b> <label id="nombre"><%=nombre%></label><br>
@@ -125,11 +128,45 @@
             </div>
 
       </div> 
+      <script type="text/javascript">
+      
+	      function imprimirAPdf() {
+	          var pdf = new jsPDF('p', 'pt', 'letter');
+	          source = $('#divPrincipal')[0];
+	
+	          specialElementHandlers = {
+	              '#bypassme': function (element, renderer) {
+	                  return true
+	              }
+	          };
+	          margins = {
+	              top: 80,
+	              bottom: 60,
+	              left: 40,
+	              width: 522
+	          };
+	
+	          pdf.fromHTML(
+	              source, 
+	              margins.left, // x coord
+	              margins.top, { // y coord
+	                  'width': margins.width, 
+	                  'elementHandlers': specialElementHandlers
+	              },
+	
+	              function (dispose) {
+	                  pdf.save('guardarProfesor.pdf');
+	              }, margins
+	          );
+	      }
+	      
+      </script>
+      
        <div style="margin-top: 30px;margin-left: 835px">
        
        		
                 <!-- <button type="button" class="btn btn-primary" >Imprimir</button> -->
-              	<input type="button" class="btn btn-primary" value="Imprimir" onclick="javascript:window.print()" />
+              	<input type="button" class="btn btn-primary" value="Imprimir" onclick="javascript:imprimirAPdf()" />
               	
               
               </div>
